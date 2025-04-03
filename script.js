@@ -56,7 +56,7 @@ document.getElementById("imageInput").addEventListener("change", function(event)
 
 function FindClosestMakeCodeColour(){
     let bestMatch = "";
-    let minDistance = Double.MAX_VALUE;
+    let minDistance = Number.MAX_VALUE;
 
     for (let i = 0; i < ColourScheme.length; i++){
         let distance = ColourDistance(ColourScheme[i]);
