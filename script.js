@@ -20,7 +20,7 @@ document.getElementById("imageInput").addEventListener("change", function(event)
                 for (let i = 0; i < img.height; i++){
                     for (let j = 0; j < img.width; j++){
                         // Get pixel data
-                        const imageData = ctx.getImageData(0, 0, img.width, img.height);
+                        const imageData = ctx.getImageData(j, i, img.width, img.height);
                         console.log("Pixel Data:", imageData.data); // This is a Uint8ClampedArray
 
                         // Example: Get color of the first pixel
@@ -29,7 +29,7 @@ document.getElementById("imageInput").addEventListener("change", function(event)
                         const blue = imageData.data[2];
                         const alpha = imageData.data[3];
         
-                        console.log(`First pixel color: R=${red}, G=${green}, B=${blue}, A=${alpha}`);
+                        console.log(`Pixel color: R=${red}, G=${green}, B=${blue}, A=${alpha}`);
                     }
                 }
                 
