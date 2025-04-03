@@ -1,10 +1,6 @@
 let ColourScheme = [
-    [0,0,0,0],
-    [14,15,12,255]
-]
-
-let hex = [
-    "0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"
+    ["0", 0,0,0,0],
+    ["1", 14,15,12,255]
 ]
 
 
@@ -52,7 +48,7 @@ function FindClosestMakeCodeColour(){
         let distance = ColourDistance(ColourScheme[i]);
         if(distance < minDistance){
             minDistance = distance;
-            bestMatch = hex[i];
+            bestMatch = ColourScheme[i][0];
         }
     }
 
@@ -60,10 +56,10 @@ function FindClosestMakeCodeColour(){
 }
 
 function ColourDistance(c1, c2){
-    let aDiff = c1.A - c2[3];
-    let rDiff = c1.R - c2[0];
-    let gDiff = c1.G - c2[1];
-    let bDiff = c1.B - c2[2];
+    let aDiff = c1.A - c2[1];
+    let rDiff = c1.R - c2[2];
+    let gDiff = c1.G - c2[3];
+    let bDiff = c1.B - c2[4];
 
     return Math.sqrt(Math.pow(aDiff) + Math.pow(rDiff) + Math.pow(gDiff) + Math.pow(bDiff) +);
 }
