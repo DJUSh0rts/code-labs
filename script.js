@@ -1,3 +1,13 @@
+let ColourScheme = [
+    [0,0,0,0],
+    [14,15,12,255]
+]
+
+let hex = [
+    "0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"
+]
+
+
 document.getElementById("imageInput").addEventListener("change", function(event) {
     const file = event.target.files[0];
     if (file) {
@@ -20,16 +30,9 @@ document.getElementById("imageInput").addEventListener("change", function(event)
                 for (let i = 0; i < img.height; i++){
                     for (let j = 0; j < img.width; j++){
                         // Get pixel data
-                        const imageData = ctx.getImageData(j, i, img.width, img.height);
-                        console.log("Pixel Data:", imageData.data); // This is a Uint8ClampedArray
+                        const imageData = ctx.getImageData(j, i, img.width, img.height).data;
 
-                        // Example: Get color of the first pixel
-                        const red = imageData.data[0];
-                        const green = imageData.data[1];
-                        const blue = imageData.data[2];
-                        const alpha = imageData.data[3];
-        
-                        console.log(`Pixel color: R=${red}, G=${green}, B=${blue}, A=${alpha}`);
+                        console.log(FindClosestMakeCodeColour(imageData));
                     }
                 }
                 
@@ -40,3 +43,28 @@ document.getElementById("imageInput").addEventListener("change", function(event)
         reader.readAsDataURL(file);
     }
 });
+
+function FindClosestMakeCodeColour(){
+    let bestMatch = "";
+    let minDistance = Double.MAX_VALUE;
+
+    for (let i = 0; i < ColourScheme.length; i++){
+        let distance = ColourDistance(ColourScheme[i]);
+        if(distance < minDistance){
+            minDistance = distance;
+            bestMatch = hex[i];
+        }
+    }
+
+    return bestMatch;
+}
+
+function ColourDistance(c1, c2){
+    let aDiff = c1.A - c2[3];
+    let rDiff = c1.R - c2.[0];
+    let gDiff = c1.G - c2.[1];
+    let bDiff = c1.B - c2.[2];
+
+    return Math.sqrt(Math.pow(aDiff) + Math.pow(rDiff) + Math.pow(gDiff) + Math.pow(bDiff) +);
+}
+
