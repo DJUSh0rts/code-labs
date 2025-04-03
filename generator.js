@@ -54,12 +54,12 @@ document.getElementById("imageInput").addEventListener("change", function(event)
     }
 });
 
-function FindClosestMakeCodeColour(){
+function FindClosestMakeCodeColour(colour){
     let bestMatch = "";
     let minDistance = Number.MAX_VALUE;
 
     for (let i = 0; i < ColourScheme.length; i++){
-        let distance = ColourDistance(ColourScheme[i]);
+        let distance = ColourDistance(colour, ColourScheme[i]);
         if(distance < minDistance){
             minDistance = distance;
             bestMatch = ColourScheme[i][0];
@@ -70,10 +70,10 @@ function FindClosestMakeCodeColour(){
 }
 
 function ColourDistance(c1, c2){
-    let aDiff = c1.A - c2[1];
-    let rDiff = c1.R - c2[2];
-    let gDiff = c1.G - c2[3];
-    let bDiff = c1.B - c2[4];
+    let aDiff = c1[3] - c2[1];
+    let rDiff = c1[0] - c2[2];
+    let gDiff = c1[1] - c2[3];
+    let bDiff = c1[2] - c2[4];
 
     return Math.sqrt(Math.pow(aDiff) + Math.pow(rDiff) + Math.pow(gDiff) + Math.pow(bDiff));
 }
