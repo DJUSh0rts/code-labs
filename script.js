@@ -61,6 +61,6 @@ function ColourDistance(c1, c2){
     let gDiff = c1.G - c2[3];
     let bDiff = c1.B - c2[4];
 
-    return Math.sqrt(Math.pow(aDiff) + Math.pow(rDiff) + Math.pow(gDiff) + Math.pow(bDiff) +);
+    return Math.sqrt(Math.pow(aDiff) + Math.pow(rDiff) + Math.pow(gDiff) + Math.pow(bDiff));
 }
 
