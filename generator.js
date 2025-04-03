@@ -35,16 +35,19 @@ document.getElementById("imageInput").addEventListener("change", function(event)
                 canvas.height = img.height;
                 ctx.drawImage(img, 0, 0);
 
-                
+                let textOut = "";
 
                 for (let i = 0; i < img.height; i++){
                     for (let j = 0; j < img.width; j++){
                         // Get pixel data
                         const imageData = ctx.getImageData(j, i, img.width, img.height).data;
 
-                        console.log(FindClosestMakeCodeColour(imageData));
+                        textOut += FindClosestMakeCodeColour(imageData);
                     }
+		    textOut += "\n";
                 }
+
+		document.getElementById("output").innerText = textOut;
                 
                 
             };
@@ -75,6 +78,6 @@ function ColourDistance(c1, c2){
     let gDiff = c1[1] - c2[3];
     let bDiff = c1[2] - c2[4];
 
-    return Math.sqrt(Math.pow(aDiff) + Math.pow(rDiff) + Math.pow(gDiff) + Math.pow(bDiff));
+    return Math.sqrt(Math.pow(aDiff,2) + Math.pow(rDiff,2) + Math.pow(gDiff,2) + Math.pow(bDiff,2));
 }
 
