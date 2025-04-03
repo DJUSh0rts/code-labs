@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Lab</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">CodeLab</div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="generation.html">Convert Image</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <input type="file" id="imageInput" accept="image/*">
+    <img id="preview" alt="Image Preview" style="max-width: 300px; display: none;">
+    <canvas id="canvas" style="display:none;"></canvas>
+    <script src="pages/generator/generator.js"></script>
+
+    <label id="output", class="outlined-label">Output Text</label>
+
+</body>
+</html>

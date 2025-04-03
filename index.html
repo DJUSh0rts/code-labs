@@ -3,16 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Labs</title>
+    <title>Code Lab</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <input type="file" id="imageInput" accept="image/*">
-    <img id="preview" alt="Image Preview" style="max-width: 300px; display: none;">
-    <canvas id="canvas" style="display:none;"></canvas>
-    <script src="generator.js"></script>
+    <header>
+        <div class="navbar">
+            <div class="logo">CodeLab</div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="generation.html">Convert Image</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
-    <label id="output", class="outlined-label">Output Text</label>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Code Lab!</h1>
+            <p>Get helpful tools for making Makecode Arcade Games</p>
+            <button class="cta-btn" onclick="window.location.href='generation.html';">Image Generator</button>
+        </div>
+    </section>
 
+    <section class="features">
+        <div class="feature">
+            <h2>Create Games</h2>
+            <p>Build your games with simple drag-and-drop blocks.</p>
+        </div>
+        <div class="feature">
+            <h2>Play Games</h2>
+            <p>Enjoy games created by others, and share your own creations.</p>
+        </div>
+        <div class="feature">
+            <h2>Explore Tutorials</h2>
+            <p>Get started with our step-by-step tutorials.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Code Lab. All rights reserved.</p>
+    </footer>
 </body>
 </html>
