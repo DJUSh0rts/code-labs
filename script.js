@@ -61,9 +61,9 @@ function FindClosestMakeCodeColour(){
 
 function ColourDistance(c1, c2){
     let aDiff = c1.A - c2[3];
-    let rDiff = c1.R - c2.[0];
-    let gDiff = c1.G - c2.[1];
-    let bDiff = c1.B - c2.[2];
+    let rDiff = c1.R - c2[0];
+    let gDiff = c1.G - c2[1];
+    let bDiff = c1.B - c2[2];
 
     return Math.sqrt(Math.pow(aDiff) + Math.pow(rDiff) + Math.pow(gDiff) + Math.pow(bDiff) +);
 }
