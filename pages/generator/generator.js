@@ -78,6 +78,7 @@ let ColourSchemes = [
 
 let file;
 let currentScheme = ColourSchemes[0];
+let textOut
 
 // Function to populate the dropdown with color schemes
 function populateDropdown() {
@@ -139,7 +140,7 @@ function Generate(){
                 canvas.height = img.height;
                 ctx.drawImage(img, 0, 0);
 
-                let textOut = "";
+                textOut = "";
 
                 for (let i = 0; i < img.height; i++){
                     for (let j = 0; j < img.width; j++){
@@ -192,4 +193,14 @@ document.getElementById("hideOutPut").addEventListener("change", function () {
     } else {
         document.getElementById("output").style.display = "inline-block";
     }
+});
+
+document.getElementById("copyButton").addEventListener("click", function () {
+    const textToCopy = textOut;
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        alert("Text copied: " + textToCopy);
+    }).catch(err => {
+        console.error("Failed to copy text: ", err);
+    });
 });

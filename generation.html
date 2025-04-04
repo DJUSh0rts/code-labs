@@ -44,17 +44,6 @@
 
         <label id="output" class="outlined-label">Output Text</label>
         <button id="copyButton">Copy Text</button>
-    <script>
-        document.getElementById("copyButton").addEventListener("click", function () {
-            const textToCopy = document.getElementById("output").innerText;
-
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                alert("Text copied: " + textToCopy);
-            }).catch(err => {
-                console.error("Failed to copy text: ", err);
-            });
-        });
-    </script>
 
     <div class="palette-section">
             <label for="colorPaletteSelector">Choose a Color Palette:</label>
