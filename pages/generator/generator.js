@@ -76,6 +76,7 @@ let ColourSchemes = [
 ]
 ]
 
+let file;
 let currentScheme = ColourSchemes[0];
 
 // Function to populate the dropdown with color schemes
@@ -119,7 +120,10 @@ window.onload = function() {
 };
 
 document.getElementById("imageInput").addEventListener("change", function(event) {
-    const file = event.target.files[0];
+    file = event.target.files[0];
+});
+
+function Generate(){
     if (file) {
         const reader = new FileReader();
 
@@ -155,7 +159,7 @@ document.getElementById("imageInput").addEventListener("change", function(event)
 
         reader.readAsDataURL(file);
     }
-});
+}
 
 function FindClosestMakeCodeColour(colour){
     let bestMatch = "";
@@ -181,3 +185,11 @@ function ColourDistance(c1, c2){
     return Math.sqrt(Math.pow(aDiff,2) + Math.pow(rDiff,2) + Math.pow(gDiff,2) + Math.pow(bDiff,2));
 }
 
+
+document.getElementById("hideOutPut").addEventListener("change", function () {
+    if (this.checked) {
+        document.getElementById("output").style.display = "none";
+    } else {
+        document.getElementById("output").style.display = "inline-block";
+    }
+});

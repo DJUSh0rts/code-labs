@@ -27,6 +27,19 @@
             <input type="file" id="imageInput" accept="image/*">
             <img id="preview" alt="Image Preview" class="hidden">
             <canvas id="canvas" class="hidden"></canvas>
+
+            <button onclick="Generate()">Generate</button>
+        </div>
+
+
+        <div>
+            <label>Hide Output:</label>
+            <div>
+            <label class="switch">
+                <input type="checkbox" id="hideOutPut">
+                <span class="slider round"></span>
+            </label>
+            </div>
         </div>
 
         <label id="output" class="outlined-label">Output Text</label>
@@ -49,11 +62,11 @@
             
         </div>
 
-        
+    <div id="colorPreview"></div>    
     </main>
     
     
-    <div id="colorPreview"></div>
+    
 
     <script src="pages/generator/generator.js"></script>
 
