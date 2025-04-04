@@ -34,6 +34,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .navbar .logo {
@@ -121,6 +123,8 @@ footer {
     text-align: center;
 }
 
+
+
 label {
     font-size: 18px;
     font-weight: bold;
@@ -151,4 +155,38 @@ select {
     height: 50px;
     margin: 5px;
     border-radius: 5px;
+}
+
+/* Upload Section */
+.upload-section {
+    margin: 20px 0;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background: white;
+    color: #007bff;
+    cursor: pointer;
+}
+
+/* Image Preview */
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
 }

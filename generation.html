@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Lab</title>
+    <title>Code Lab - Image Converter</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -20,26 +20,37 @@
         </div>
     </header>
 
-    <input type="file" id="imageInput" accept="image/*">
-    <img id="preview" alt="Image Preview" style="max-width: 300px; display: none;">
-    <canvas id="canvas" style="display:none;"></canvas>
+    <main class="container">
+        <h1>Image Convertion</h1>
 
+        <div class="upload-section">
+            <input type="file" id="imageInput" accept="image/*">
+            <img id="preview" alt="Image Preview" class="hidden">
+            <canvas id="canvas" class="hidden"></canvas>
+        </div>
 
-    <label id="output", class="outlined-label">Output Text</label>
+        <label id="output" class="outlined-label">Output Text</label>
+        <button id="copyButton">Copy Text</button>
+    <script>
+        document.getElementById("copyButton").addEventListener("click", function () {
+            const textToCopy = document.getElementById("output").innerText;
 
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert("Text copied: " + textToCopy);
+            }).catch(err => {
+                console.error("Failed to copy text: ", err);
+            });
+        });
+    </script>
 
-    <label for="colorPaletteSelector">Choose a Color Palette:</label>
-    <select id="colorPaletteSelector" onchange="updatePalette()">
-        <!-- Options will be populated by JavaScript -->
-    </select>
-
-    <div id="colorPreview" style="margin-top: 20px;">
-        <!-- The color preview will be displayed here -->
-    </div>
-
+        <div class="palette-section">
+            <label for="colorPaletteSelector">Choose a Color Palette:</label>
+            <select id="colorPaletteSelector" onchange="updatePalette()"></select>
+            <div id="colorPreview"></div>
+        </div>
+    </main>
 
     <script src="pages/generator/generator.js"></script>
-
 
     <footer>
         <p>&copy; 2025 Code Lab. All rights reserved.</p>
