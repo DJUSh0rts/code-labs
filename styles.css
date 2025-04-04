@@ -26,7 +26,7 @@ body {
 
 /* Header */
 header {
-    background-color: #4C8BF5;
+    background-color: #F76820;
     padding: 20px;
 }
 
@@ -85,6 +85,17 @@ header {
     font-size: 1.2rem;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.container_bg{
+  background-color: #34C759;
+}
+
+.container{
+  background-color: #34C759;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }
 
 .hero .cta-btn:hover {
