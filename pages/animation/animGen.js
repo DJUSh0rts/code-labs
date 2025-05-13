@@ -156,6 +156,7 @@ function Generate(){
                         processedCount++;
         
                         if (processedCount === frameCount) {
+                            console.log(fullOutput);
                             document.getElementById("output").innerText = fullOutput;
                         }
                     }
