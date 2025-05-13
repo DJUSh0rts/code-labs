@@ -1,3 +1,15 @@
+.animation-settings {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.animation-settings label,
+.animation-settings select,
+.animation-settings input {
+    display: block;
+    margin: 5px 0;
+}
+
 .navIcon{
     color: #060606;
     display:inherit;

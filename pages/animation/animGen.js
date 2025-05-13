@@ -130,27 +130,36 @@ function Generate(){
     if (file) {
         const reader = new FileReader();
 
+        const splitDirection = document.getElementById("splitDirection").value;
+        const frameCount = parseInt(document.getElementById("frameCount").value, 10);
+
         reader.onload = function(e) {
             const img = new Image();
             img.src = e.target.result;
 
-            img.onload = function() {
-                const canvas = document.getElementById("canvas");
-                const ctx = canvas.getContext("2d");
-
-                canvas.width = img.width;
-                    canvas.height = img.height;
-                    ctx.drawImage(img, 0, 0);
-
-                    const imageData = ctx.getImageData(0, 0, img.width, img.height);
-                    // Send data to worker
-                    worker.postMessage({
-                        type: "process",
-                        imageData: imageData,
-                        colourScheme: currentScheme,
-                        width: img.width,
-                        height: img.height
-                    });
+            img.onload = () => {
+                const frameWidth = splitDirection === "columns" ? img.width / frameCount : img.width;
+                const frameHeight = splitDirection === "rows" ? img.height / frameCount : img.height;
+        
+                canvas.width = frameWidth;
+                canvas.height = frameHeight;
+        
+                let fullOutput = "";
+        
+                const worker = new Worker("path/to/worker.js");
+        
+                let processedCount = 0;
+        
+                worker.onmessage = function (e) {
+                    if (e.data.type === "done") {
+                        fullOutput += `// Frame ${processedCount + 1}\n` + e.data.result + "\n\n";
+                        processedCount++;
+        
+                        if (processedCount === frameCount) {
+                            document.getElementById("output").innerText = fullOutput;
+                        }
+                    }
+                };
 
 		
             };

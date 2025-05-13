@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Lab - Animation Generation</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">CodeLab</div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html"><img src="images/icons/home.png" class="navIcon"></img></a></li>
+                    <li><a href="generation.html"><img src="images/icons/imageConvert.png" class="navIcon"></img></a></li>
+                    <li><a href="animation.html"><img src="images/icons/animationGen.png" class="navIcon"></img></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Animation Generation</h1>
+
+        <div class="upload-section">
+            <input type="file" id="imageInput" accept="image/*">
+            <img id="preview" alt="Image Preview" class="hidden">
+            <canvas id="canvas" class="hidden"></canvas>
+
+            <button onclick="Generate()">Generate</button>
+        </div>
+
+
+        <div>
+            <label>Hide Output:</label>
+            <div>
+            <label class="switch">
+                <input type="checkbox" id="hideOutPut">
+                <span class="slider round"></span>
+            </label>
+            </div>
+        </div>
+
+        <label id="output" class="outlined-label">Output Text</label>
+        <button id="copyButton">Copy Text</button>
+
+        <div class="animation-settings">
+            <label for="splitDirection">Split By:</label>
+            <select id="splitDirection">
+                <option value="columns">Columns</option>
+                <option value="rows">Rows</option>
+            </select>
+    
+            <label for="frameCount">Number of Frames:</label>
+            <input type="number" id="frameCount" min="1" value="1">
+        </div>
+
+    <div class="palette-section">
+            <label for="colorPaletteSelector">Choose a Color Palette:</label>
+            <select id="colorPaletteSelector" onchange="updatePalette()"></select>
+            
+        </div>
+
+    <div id="colorPreview"></div> 
+    </main>
+    
+    
+    
+
+    <script src="pages/animation/animGen.js"></script>
+
+    <footer>
+        <p>&copy; 2025 Code Lab. All rights reserved.</p>
+    </footer>
+</body>
+</html>
