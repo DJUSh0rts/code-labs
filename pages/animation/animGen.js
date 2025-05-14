@@ -78,7 +78,6 @@ let ColourSchemes = [
     let currentScheme = ColourSchemes[0];
 
 
-let worker = new Worker("pages/generator/generation.js");
 let file;
 let textOut;
 
@@ -138,15 +137,15 @@ function Generate(){
             img.src = e.target.result;
 
             img.onload = () => {
-                const frameWidth = splitDirection === "columns" ? img.width / frameCount : img.width;
-                const frameHeight = splitDirection === "rows" ? img.height / frameCount : img.height;
+                const frameWidth = splitDirection === "Columns" ? img.width / frameCount : img.width;
+                const frameHeight = splitDirection === "Rows" ? img.height / frameCount : img.height;
         
                 canvas.width = frameWidth;
                 canvas.height = frameHeight;
         
                 let fullOutput = "";
         
-                const worker = new Worker("path/to/worker.js");
+                const worker = new Worker("pages/generator/generation.js");
         
                 let processedCount = 0;
         
@@ -162,20 +161,35 @@ function Generate(){
                     }
                 };
 
-		
-            };
+                  for (let i = 0; i < frameCount; i++) {
+            const sx = splitDirection === "columns" ? i * frameWidth : 0;
+            const sy = splitDirection === "rows" ? i * frameHeight : 0;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, sx, sy, frameWidth, frameHeight, 0, 0, frameWidth, frameHeight);
+            const imageData = ctx.getImageData(0, 0, frameWidth, frameHeight);
+
+            worker.postMessage({
+                type: "process",
+                imageData: imageData,
+                width: frameWidth,
+                height: frameHeight,
+                colourScheme: getSelectedColorScheme() // implement this if needed
+            });
+                }
         };
 
         reader.readAsDataURL(file);
     }
 }
+}
 
-worker.onmessage = function(e) {
-    if (e.data.type === "done") {
-        textOut = e.data.result;
-        document.getElementById("output").innerText = e.data.result;
-    }
-};
+// worker.onmessage = function(e) {
+//     if (e.data.type === "done") {
+//         textOut = e.data.result;
+//         document.getElementById("output").innerText = e.data.result;
+//     }
+// };
 
 
 
