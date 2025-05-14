@@ -162,8 +162,8 @@ function Generate(){
                 };
 
                   for (let i = 0; i < frameCount; i++) {
-            const sx = splitDirection === "columns" ? i * frameWidth : 0;
-            const sy = splitDirection === "rows" ? i * frameHeight : 0;
+            const sx = splitDirection === "Columns" ? i * frameWidth : 0;
+            const sy = splitDirection === "Rows" ? i * frameHeight : 0;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, sx, sy, frameWidth, frameHeight, 0, 0, frameWidth, frameHeight);
@@ -174,7 +174,7 @@ function Generate(){
                 imageData: imageData,
                 width: frameWidth,
                 height: frameHeight,
-                colourScheme: getSelectedColorScheme() // implement this if needed
+                colourScheme: currentScheme // implement this if needed
             });
                 }
         };
