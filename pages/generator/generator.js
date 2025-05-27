@@ -1,6 +1,6 @@
 let ColourSchemes = [
     [ "Arcade",
-        ["0", 0,0,0,0],
+        [".", 0,0,0,0],
         ["1", 255, 255, 255, 255],
         ["2", 255, 255, 33, 33],
         ["3", 255, 255, 147, 196],
@@ -19,7 +19,7 @@ let ColourSchemes = [
     ],
     
     [ "Matte",
-        ["0", 0,0,0,0],
+        [".", 0,0,0,0],
         ["1", 255, 255, 241, 232],
         ["2", 255, 255, 0, 77],
         ["3", 255, 255, 119, 168],
@@ -38,7 +38,7 @@ let ColourSchemes = [
     ],
     
         [ "Grayscale",
-            ["0", 0,0,0,0],
+            [".", 0,0,0,0],
             ["1", 255, 255, 255, 255],
             ["2", 255, 237, 237, 237],
             ["3", 255, 219, 219, 219],
@@ -57,7 +57,7 @@ let ColourSchemes = [
     ],
     
     [ "Pastel",
-        ["0", 0,0,0,0],
+        [".", 0,0,0,0],
         ["1", 255, 255, 247, 228],
         ["2", 255, 249, 130, 132],
         ["3", 255, 254, 170, 228],
@@ -162,7 +162,7 @@ function Generate(){
 
 worker.onmessage = function(e) {
     if (e.data.type === "done") {
-        textOut = "img`"+e.data.result+"`";
+        textOut = "img`\n"+e.data.result+"`";
         document.getElementById("output").innerText = e.data.result;
     }
 };
