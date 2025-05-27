@@ -162,7 +162,7 @@ function Generate(){
 
 worker.onmessage = function(e) {
     if (e.data.type === "done") {
-        textOut = e.data.result;
+        textOut = "img'"+e.data.result+"'";
         document.getElementById("output").innerText = e.data.result;
     }
 };
